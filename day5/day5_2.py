@@ -1,5 +1,4 @@
 import os
-import time
 
 #gets input file on every OS
 script_dir = os.path.dirname(__file__) #abs script directory
@@ -22,8 +21,6 @@ def getMinOfSeeds(start:int, sRange:int, maps:list) -> int:
         res.append(s)
     return min(res)
 
-start_time = time.time()
-
 with open(abs_file_path, "r") as f:
     seeds = []
     maps = []
@@ -43,14 +40,5 @@ with open(abs_file_path, "r") as f:
     resList = []
     
     for b in seeds[::2]:
-        resList.append(getMinOfSeeds(b, seeds[seeds.index(b) + 1], maps))
+        print(getMinOfSeeds(b, seeds[seeds.index(b) + 1], maps)) # there are only 10 inputs, test them in runtime :)
     print(min(resList))
-
-end_time = time.time()
-
-runtime = end_time - start_time
-print("runtime: ", runtime) 
-
-
-
-
